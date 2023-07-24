@@ -30,6 +30,9 @@ jobs:
         with:
           name: lambda-zip
           path: lambda.zip
+          
+      - name: Run PyTests
+        run: pytest
 
       - name: Deploy Lambda function
         env:
