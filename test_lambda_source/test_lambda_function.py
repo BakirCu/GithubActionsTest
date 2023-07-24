@@ -8,5 +8,6 @@ def test_lambda_handler():
     responce = lambda_handler("","")
     assert responce == {
         'statusCode': 200,
-        'body': '"Hello from Lambda!"'
+        'body': '"Hello from Lambda!"',
+        'data': '""'
     }
