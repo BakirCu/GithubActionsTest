@@ -11,15 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Create zip file
         run: |
           cd lambda_source
@@ -36,8 +27,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: [create-zip]
     steps:
-      
-          
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt    
+
       - name: Run PyTests
         run: pytest
 
