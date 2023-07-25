@@ -21,13 +21,13 @@ jobs:
         run: pip install -r requirements.txt
 
       
-  create_zip:
+  create-zip:
     runs-on: ubuntu-latest
     steps:
       - name: Create zip file
-      run: |
-        cd lambda_source
-        zip -r ../lambda.zip .
+        run: |
+          cd lambda_source
+          zip -r ../lambda.zip .
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Upload zip file as an artifact
